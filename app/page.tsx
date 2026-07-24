@@ -1,15 +1,7 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
-
-type MenuItem = {
-  name: string;
-  description: string;
-  price: string;
-  category: string;
-  tag?: string;
-  art: string;
-};
+import { FormEvent, useEffect, useMemo, useState } from "react";
+import { MENU_CATEGORIES, MENU_ITEMS } from "@/data/menu";
 
 type Member = {
   name: string;
@@ -17,71 +9,6 @@ type Member = {
   points: number;
   visits: number;
 };
-
-const categories = ["Todos", "Para compartir", "Hamburguesas", "Platos", "Bebidas"];
-
-const menuItems: MenuItem[] = [
-  {
-    name: "Alitas Barbudos",
-    description: "10 alitas crujientes con salsa de la casa, apio y dip cremoso.",
-    price: "₡5.900",
-    category: "Para compartir",
-    tag: "Favorito",
-    art: "wings",
-  },
-  {
-    name: "Papas Bravas",
-    description: "Papas rústicas, salsa brava ahumada, alioli y cebollín.",
-    price: "₡3.800",
-    category: "Para compartir",
-    art: "fries",
-  },
-  {
-    name: "La Barbuda",
-    description: "Carne de res, queso, cebolla caramelizada, tocineta y salsa especial.",
-    price: "₡6.900",
-    category: "Hamburguesas",
-    tag: "La de la casa",
-    art: "burger",
-  },
-  {
-    name: "La Fuego",
-    description: "Carne de res, pepper jack, jalapeño, pico de gallo y mayo picante.",
-    price: "₡7.200",
-    category: "Hamburguesas",
-    tag: "Picante",
-    art: "fire",
-  },
-  {
-    name: "Costilla BBQ",
-    description: "Costilla cocida lentamente, BBQ de café, papas y ensalada fresca.",
-    price: "₡8.900",
-    category: "Platos",
-    art: "ribs",
-  },
-  {
-    name: "Tacos del Barrio",
-    description: "Tres tacos de birria, queso, cebolla, culantro y consomé.",
-    price: "₡6.500",
-    category: "Platos",
-    tag: "Nuevo",
-    art: "tacos",
-  },
-  {
-    name: "Barbudo Sour",
-    description: "Whisky, limón, sirope especiado, clara y bitters.",
-    price: "₡4.500",
-    category: "Bebidas",
-    art: "cocktail",
-  },
-  {
-    name: "Limonada de la Casa",
-    description: "Limón, hierbabuena, jengibre y soda. También disponible con gin.",
-    price: "₡2.900",
-    category: "Bebidas",
-    art: "lemonade",
-  },
-];
 
 const rewards = [
   { name: "Papas de la casa", cost: 180, note: "Para acompañar tu próxima visita" },
@@ -108,12 +35,29 @@ export default function Home() {
     message: "",
     canJoin: false,
   });
+  const [menuImages, setMenuImages] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    let active = true;
+    fetch("/api/menu-images")
+      .then((response) => (response.ok ? response.json() : { images: {} }))
+      .then((result: { images?: Record<string, string> }) => {
+        if (active) setMenuImages(result.images ?? {});
+      })
+      .catch(() => {
+        if (active) setMenuImages({});
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const filteredItems = useMemo(
     () =>
       category === "Todos"
-        ? menuItems
-        : menuItems.filter((item) => item.category === category),
+        ? MENU_ITEMS
+        : MENU_ITEMS.filter((item) => item.category === category),
     [category],
   );
 
@@ -347,7 +291,7 @@ export default function Home() {
         </div>
 
         <div className="category-tabs" role="tablist" aria-label="Categorías del menú">
-          {categories.map((item) => (
+          {MENU_CATEGORIES.map((item) => (
             <button
               key={item}
               className={category === item ? "active" : ""}
@@ -362,12 +306,19 @@ export default function Home() {
 
         <div className="menu-grid">
           {filteredItems.map((item) => (
-            <article className="menu-card" key={item.name}>
-              <div className={`food-art ${item.art}`} aria-hidden="true">
-                <span className="art-label">{item.category}</span>
-                <span className="art-number">{item.name.slice(0, 2).toUpperCase()}</span>
-                <i className="plate plate-one" />
-                <i className="plate plate-two" />
+            <article className="menu-card" key={item.id}>
+              <div className={`food-art ${item.art} ${menuImages[item.id] ? "has-photo" : ""}`}>
+                {menuImages[item.id] ? (
+                  <img src={menuImages[item.id]} alt={item.name} />
+                ) : (
+                  <>
+                    <span className="art-label">{item.category}</span>
+                    <span className="art-number">{item.name.slice(0, 2).toUpperCase()}</span>
+                    <i className="plate plate-one" />
+                    <i className="plate plate-two" />
+                    <span className="photo-placeholder">Foto próximamente</span>
+                  </>
+                )}
               </div>
               <div className="menu-card-body">
                 <div className="menu-title-row">
@@ -380,9 +331,12 @@ export default function Home() {
             </article>
           ))}
         </div>
-        <p className="menu-note">
-          * Menú de muestra. Precios y disponibilidad pueden variar.
-        </p>
+        <div className="menu-note-row">
+          <p className="menu-note">
+            * Menú de muestra. Precios y disponibilidad pueden variar.
+          </p>
+          <a href="/admin/menu">Administrar fotografías →</a>
+        </div>
       </section>
 
       <section className="reservation-section section" id="reservar">
