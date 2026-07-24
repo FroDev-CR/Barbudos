@@ -1,5 +1,6 @@
-import { getDb, ensureSchema } from "../../../db";
-import { reservations } from "../../../db/schema";
+import { getSupabaseAdmin } from "@/lib/supabase-admin";
+
+export const runtime = "nodejs";
 
 function cleanPhone(value: string) {
   return value.replace(/[^\d+]/g, "");
@@ -8,7 +9,7 @@ function cleanPhone(value: string) {
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as Record<string, unknown>;
-    const name = String(body.name ?? "").trim();
+    const name = String(body.name ?? "").trim().slice(0, 100);
     const phone = cleanPhone(String(body.phone ?? ""));
     const date = String(body.date ?? "").trim();
     const time = String(body.time ?? "").trim();
@@ -22,24 +23,30 @@ export async function POST(request: Request) {
       );
     }
 
-    await ensureSchema();
     const code = `BRB-${crypto.randomUUID().slice(0, 6).toUpperCase()}`;
-    const db = getDb();
-    await db.insert(reservations).values({
+    const supabase = getSupabaseAdmin();
+    const { error } = await supabase.from("reservations").insert({
       code,
       name,
       phone,
-      date,
-      time,
+      reservation_date: date,
+      reservation_time: time,
       guests,
       notes,
+      status: "pending",
     });
 
+    if (error) throw error;
     return Response.json({ code }, { status: 201 });
   } catch (error) {
     console.error("reservation_error", error);
     return Response.json(
-      { error: "No pudimos guardar la reservación. Intentá de nuevo." },
+      {
+        error:
+          error instanceof Error && error.message.includes("Supabase")
+            ? "Falta configurar Supabase en Vercel."
+            : "No pudimos guardar la reservación. Intentá de nuevo.",
+      },
       { status: 500 },
     );
   }
