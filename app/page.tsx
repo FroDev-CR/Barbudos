@@ -21,7 +21,7 @@ function normalizePhone(value: string) {
 }
 
 export default function Home() {
-  const [category, setCategory] = useState("Todos");
+  const [category, setCategory] = useState("Entradas");
   const [reservationState, setReservationState] = useState<{
     loading: boolean;
     message: string;
@@ -286,7 +286,8 @@ export default function Home() {
             <h2>¿Qué se te antoja hoy?</h2>
           </div>
           <p>
-            Una selección de favoritos para compartir, descubrir y pedir otra vez.
+            El menú completo de Barbudos, organizado para encontrar rápido lo que
+            querés comer o tomar.
           </p>
         </div>
 
@@ -326,6 +327,16 @@ export default function Home() {
                   <strong>{item.price}</strong>
                 </div>
                 <p>{item.description}</p>
+                {item.variants && item.variants.length > 0 && (
+                  <div className="menu-variants" aria-label={`Opciones de ${item.name}`}>
+                    {item.variants.map((variant) => (
+                      <div key={`${item.id}-${variant.label}`}>
+                        <span>{variant.label}</span>
+                        <strong>{variant.price}</strong>
+                      </div>
+                    ))}
+                  </div>
+                )}
                 {item.tag && <span className="tag">{item.tag}</span>}
               </div>
             </article>
@@ -333,7 +344,7 @@ export default function Home() {
         </div>
         <div className="menu-note-row">
           <p className="menu-note">
-            * Menú de muestra. Precios y disponibilidad pueden variar.
+            * Precios incluyen impuestos. Disponibilidad sujeta al servicio del día.
           </p>
           <a href="/admin/menu">Administrar fotografías →</a>
         </div>
