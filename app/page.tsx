@@ -248,6 +248,10 @@ export default function Home() {
           </p>
         </div>
 
+        <div className="category-rail-label" aria-hidden="true">
+          <span>Categorías</span>
+          <span>Deslizá para explorar →</span>
+        </div>
         <div className="category-tabs" role="tablist" aria-label="Categorías del menú">
           {MENU_CATEGORIES.map((item) => (
             <button
