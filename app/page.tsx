@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import { ConnoisseurStackInteractor } from "@/components/ui/connoisseur-stack-interactor";
 import { MENU_CATEGORIES, MENU_ITEMS } from "@/data/menu";
 
@@ -208,7 +209,9 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Barbudos, volver al inicio">
-          <span className="brand-mark">B</span>
+          <span className="brand-mark brand-logo" aria-hidden="true">
+            <Image src="/logo-barbudo.png" alt="" width={489} height={540} />
+          </span>
           <span>BARBUDOS</span>
         </a>
         <nav className="desktop-nav" aria-label="Navegación principal">
@@ -524,7 +527,9 @@ export default function Home() {
       <footer>
         <div>
           <a className="brand footer-brand" href="#inicio">
-            <span className="brand-mark">B</span>
+            <span className="brand-mark brand-logo" aria-hidden="true">
+              <Image src="/logo-barbudo.png" alt="" width={489} height={540} />
+            </span>
             <span>BARBUDOS</span>
           </a>
           <p>Buena comida. Buenos tragos. Mejores historias.</p>

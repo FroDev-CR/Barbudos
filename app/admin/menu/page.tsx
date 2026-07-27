@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { MENU_CATEGORIES, MENU_ITEMS } from "@/data/menu";
 
 type UploadState = {
@@ -109,7 +110,9 @@ export default function MenuAdminPage() {
     <main className="admin-page">
       <header className="admin-header">
         <Link className="brand" href="/">
-          <span className="brand-mark">B</span>
+          <span className="brand-mark brand-logo" aria-hidden="true">
+            <Image src="/logo-barbudo.png" alt="" width={489} height={540} />
+          </span>
           <span>BARBUDOS</span>
         </Link>
         <Link className="admin-back-link" href="/">← Volver al menú</Link>
