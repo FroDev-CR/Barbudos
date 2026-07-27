@@ -62,9 +62,9 @@ button {
   gap: 32px;
   min-height: 78px;
   padding: 12px clamp(22px, 5vw, 78px);
-  border-bottom: 1px solid rgba(2, 7, 6, 0.16);
-  background: rgba(122, 166, 105, 0.94);
-  color: #020706;
+  border-bottom: 1px solid rgba(121, 173, 105, 0.18);
+  background: rgba(2, 7, 6, 0.94);
+  color: #79ad69;
   backdrop-filter: blur(16px);
 }
 
@@ -74,19 +74,19 @@ button {
 }
 
 .site-header .desktop-nav {
-  color: rgba(2, 7, 6, 0.72);
+  color: rgba(143, 189, 125, 0.76);
 }
 
 .site-header > .button {
-  border-color: #020706;
-  background: #020706;
-  color: #79ad69;
+  border-color: #79ad69;
+  background: #79ad69;
+  color: #020706;
 }
 
 .site-header > .button:hover {
-  border-color: #020706;
+  border-color: #79ad69;
   background: transparent;
-  color: #020706;
+  color: #79ad69;
 }
 
 .brand {
@@ -422,7 +422,7 @@ a:focus-visible {
   place-items: center;
   overflow: hidden;
   background: #020706;
-  color: #020706;
+  color: #79ad69;
 }
 
 .connoisseur-background,
@@ -446,9 +446,9 @@ a:focus-visible {
 .connoisseur-shade {
   z-index: -3;
   background:
-    radial-gradient(circle at 74% 47%, rgba(79, 143, 80, 0.2), transparent 30%),
-    radial-gradient(circle at 21% 52%, rgba(150, 188, 132, 0.78), transparent 43%),
-    linear-gradient(90deg, rgba(126, 169, 108, 0.9) 0%, rgba(111, 157, 96, 0.7) 39%, rgba(2, 7, 6, 0.08) 70%, rgba(2, 7, 6, 0.26) 100%);
+    radial-gradient(circle at 74% 47%, rgba(79, 143, 80, 0.11), transparent 30%),
+    radial-gradient(circle at 20% 48%, rgba(79, 143, 80, 0.08), transparent 37%),
+    linear-gradient(90deg, rgba(2, 7, 6, 0.98) 0%, rgba(2, 7, 6, 0.91) 40%, rgba(2, 7, 6, 0.24) 73%, rgba(2, 7, 6, 0.34) 100%);
 }
 
 .connoisseur-grain {
@@ -486,7 +486,7 @@ a:focus-visible {
   align-items: center;
   gap: 12px;
   margin: 0 0 20px;
-  color: rgba(2, 7, 6, 0.68);
+  color: rgba(143, 189, 125, 0.72);
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.22em;
@@ -496,8 +496,8 @@ a:focus-visible {
 .connoisseur-kicker span {
   width: 27px;
   height: 1px;
-  background: #2f6637;
-  box-shadow: 0 0 14px rgba(47, 102, 55, 0.38);
+  background: #79ad69;
+  box-shadow: 0 0 14px rgba(121, 173, 105, 0.38);
 }
 
 .connoisseur-intro h1 {
@@ -513,14 +513,14 @@ a:focus-visible {
 .connoisseur-intro h1 em {
   display: block;
   margin-top: 0.12em;
-  color: #24552f;
+  color: #4f8f50;
   font-weight: 500;
 }
 
 .connoisseur-intro > p:last-child {
   max-width: 590px;
   margin: 28px 0 0;
-  color: rgba(2, 7, 6, 0.72);
+  color: rgba(143, 189, 125, 0.75);
   font-size: clamp(0.94rem, 1.05vw, 1.08rem);
   line-height: 1.65;
 }
@@ -533,11 +533,11 @@ a:focus-visible {
 }
 
 .connoisseur-nav li {
-  border-top: 1px solid rgba(2, 7, 6, 0.2);
+  border-top: 1px solid rgba(121, 173, 105, 0.2);
 }
 
 .connoisseur-nav li:last-child {
-  border-bottom: 1px solid rgba(2, 7, 6, 0.2);
+  border-bottom: 1px solid rgba(121, 173, 105, 0.2);
 }
 
 .connoisseur-menu-item {
@@ -575,7 +575,7 @@ a:focus-visible {
 }
 
 .connoisseur-number {
-  color: rgba(2, 7, 6, 0.42);
+  color: rgba(121, 173, 105, 0.45);
   font-family: var(--serif);
   font-size: 0.82rem;
   transition: color 300ms ease, transform 300ms ease;
@@ -587,7 +587,7 @@ a:focus-visible {
 }
 
 .connoisseur-label small {
-  color: rgba(2, 7, 6, 0.46);
+  color: rgba(143, 189, 125, 0.48);
   font-size: 0.57rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -602,7 +602,7 @@ a:focus-visible {
   letter-spacing: -0.045em;
   line-height: 0.98;
   text-transform: uppercase;
-  -webkit-text-stroke: 1px rgba(2, 7, 6, 0.46);
+  -webkit-text-stroke: 1px rgba(121, 173, 105, 0.48);
   transition: color 350ms ease, transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1), -webkit-text-stroke 350ms ease;
 }
 
@@ -611,9 +611,9 @@ a:focus-visible {
   width: 34px;
   height: 34px;
   place-items: center;
-  border: 1px solid rgba(2, 7, 6, 0.3);
+  border: 1px solid rgba(121, 173, 105, 0.34);
   border-radius: 50%;
-  color: rgba(2, 7, 6, 0.62);
+  color: rgba(143, 189, 125, 0.68);
   font-size: 0.8rem;
   opacity: 0.65;
   transition: color 300ms ease, background 300ms ease, border-color 300ms ease, opacity 300ms ease, transform 300ms ease;
@@ -622,20 +622,20 @@ a:focus-visible {
 .connoisseur-menu-item.is-active .connoisseur-number,
 .connoisseur-menu-item:hover .connoisseur-number,
 .connoisseur-menu-item:focus-visible .connoisseur-number {
-  color: #24552f;
+  color: #79ad69;
   transform: translateX(4px);
 }
 
 .connoisseur-menu-item.is-active .connoisseur-label small,
 .connoisseur-menu-item:hover .connoisseur-label small,
 .connoisseur-menu-item:focus-visible .connoisseur-label small {
-  color: rgba(2, 7, 6, 0.72);
+  color: rgba(143, 189, 125, 0.78);
 }
 
 .connoisseur-menu-item.is-active .connoisseur-label strong,
 .connoisseur-menu-item:hover .connoisseur-label strong,
 .connoisseur-menu-item:focus-visible .connoisseur-label strong {
-  color: #020706;
+  color: #79ad69;
   transform: translateX(8px);
   -webkit-text-stroke-color: transparent;
 }
@@ -657,10 +657,10 @@ a:focus-visible {
   gap: 21px;
   margin-top: 24px;
   padding: 0 22px;
-  border: 1px solid #020706;
+  border: 1px solid #79ad69;
   border-radius: 999px;
-  background: #020706;
-  color: #79ad69;
+  background: #79ad69;
+  color: #020706;
   font-size: 0.75rem;
   font-weight: 850;
   letter-spacing: 0.1em;
@@ -671,9 +671,9 @@ a:focus-visible {
 
 .connoisseur-view-all:hover,
 .connoisseur-view-all:focus-visible {
-  border-color: #2f6637;
-  background: #2f6637;
-  color: #a2ca91;
+  border-color: #79ad69;
+  background: transparent;
+  color: #79ad69;
   transform: translateY(-2px);
 }
 
@@ -824,7 +824,7 @@ a:focus-visible {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: rgba(2, 7, 6, 0.54);
+  color: rgba(121, 173, 105, 0.58);
   font-size: 0.54rem;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -837,7 +837,7 @@ a:focus-visible {
   width: 32px;
   height: 1px;
   overflow: hidden;
-  background: rgba(2, 7, 6, 0.25);
+  background: rgba(121, 173, 105, 0.24);
 }
 
 .connoisseur-scroll-cue span::after {
@@ -868,7 +868,7 @@ a:focus-visible {
   padding: 13px 24px;
   overflow: hidden;
   background: var(--ink);
-  color: var(--cream);
+  color: #79ad69;
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.16em;
@@ -882,6 +882,22 @@ a:focus-visible {
 
 .section {
   padding: clamp(78px, 9vw, 140px) clamp(22px, 7vw, 110px);
+}
+
+.menu-section {
+  position: relative;
+  background:
+    radial-gradient(circle at 10% 3%, rgba(79, 143, 80, 0.12), transparent 23%),
+    #020706;
+  color: #8fbd7d;
+}
+
+.menu-section .section-heading > p {
+  color: rgba(143, 189, 125, 0.66);
+}
+
+.menu-section .eyebrow {
+  color: #79ad69;
 }
 
 .section-heading {
@@ -919,10 +935,10 @@ a:focus-visible {
 
 .category-tabs button {
   padding: 11px 18px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(121, 173, 105, 0.28);
   border-radius: 999px;
   background: transparent;
-  color: var(--muted);
+  color: rgba(143, 189, 125, 0.72);
   font-size: 0.8rem;
   font-weight: 700;
   transition: all 160ms ease;
@@ -930,9 +946,9 @@ a:focus-visible {
 
 .category-tabs button:hover,
 .category-tabs button.active {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: var(--cream);
+  border-color: #79ad69;
+  background: #79ad69;
+  color: #020706;
 }
 
 .menu-grid {
@@ -946,14 +962,16 @@ a:focus-visible {
   min-height: 250px;
   grid-template-columns: minmax(165px, 0.42fr) minmax(0, 0.58fr);
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(121, 173, 105, 0.2);
   border-radius: 24px;
-  background: #fff;
+  background: #07100d;
+  color: #8fbd7d;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .menu-card:hover {
-  box-shadow: 0 22px 55px rgba(62, 45, 36, 0.1);
+  border-color: rgba(121, 173, 105, 0.42);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.34), 0 0 30px rgba(79, 143, 80, 0.08);
   transform: translateY(-4px);
 }
 
@@ -961,33 +979,33 @@ a:focus-visible {
   position: relative;
   min-height: 250px;
   overflow: hidden;
-  background: var(--terracotta);
+  background: #315f38;
 }
 
 .food-art.fries,
 .food-art.tacos {
-  background: var(--mustard);
+  background: #416f3d;
 }
 
 .food-art.burger,
 .food-art.ribs {
-  background: var(--sage);
+  background: #294d31;
 }
 
 .food-art.cocktail {
-  background: #be6a57;
+  background: #356846;
 }
 
 .food-art.lemonade {
-  background: #a9a75c;
+  background: #486b3f;
 }
 
 .food-art.fire {
-  background: var(--terracotta-dark);
+  background: #193a24;
 }
 
 .food-art.has-photo {
-  background: #ddd4ca;
+  background: #0c1712;
 }
 
 .food-art.has-photo img {
@@ -1004,8 +1022,9 @@ a:focus-visible {
   bottom: 15px;
   padding: 7px 9px;
   border-radius: 999px;
-  background: rgba(24, 20, 18, 0.7);
-  color: #fff;
+  border: 1px solid rgba(121, 173, 105, 0.28);
+  background: rgba(2, 7, 6, 0.78);
+  color: #8fbd7d;
   font-size: 0.57rem;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -1016,7 +1035,7 @@ a:focus-visible {
   z-index: 2;
   top: 22px;
   left: 22px;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(191, 222, 177, 0.9);
   font-size: 0.6rem;
   font-weight: 800;
   letter-spacing: 0.15em;
@@ -1028,7 +1047,7 @@ a:focus-visible {
   z-index: 2;
   right: -4px;
   bottom: -29px;
-  color: rgba(255, 255, 255, 0.28);
+  color: rgba(191, 222, 177, 0.28);
   font-family: var(--serif);
   font-size: 8.3rem;
   font-weight: 900;
@@ -1039,7 +1058,7 @@ a:focus-visible {
   position: absolute;
   display: block;
   border-radius: 50%;
-  background: rgba(24, 20, 18, 0.2);
+  background: rgba(2, 7, 6, 0.28);
 }
 
 .plate-one {
@@ -1047,7 +1066,7 @@ a:focus-visible {
   left: 40px;
   width: 112px;
   height: 112px;
-  border: 19px solid rgba(255, 255, 255, 0.24);
+  border: 19px solid rgba(191, 222, 177, 0.24);
 }
 
 .plate-two {
@@ -1055,9 +1074,9 @@ a:focus-visible {
   left: 79px;
   width: 35px;
   height: 35px;
-  background: rgba(245, 239, 228, 0.8);
-  box-shadow: 25px -14px 0 rgba(245, 239, 228, 0.4),
-    -20px 18px 0 rgba(24, 20, 18, 0.17);
+  background: rgba(191, 222, 177, 0.8);
+  box-shadow: 25px -14px 0 rgba(143, 189, 125, 0.42),
+    -20px 18px 0 rgba(2, 7, 6, 0.2);
 }
 
 .menu-card-body {
@@ -1079,10 +1098,11 @@ a:focus-visible {
   margin: 0;
   font-family: var(--serif);
   font-size: 1.35rem;
+  color: #a5cc93;
 }
 
 .menu-title-row strong {
-  color: var(--terracotta);
+  color: #79ad69;
   font-family: var(--serif);
   font-size: 1.02rem;
   white-space: nowrap;
@@ -1090,7 +1110,7 @@ a:focus-visible {
 
 .menu-card-body p {
   margin: 16px 0 20px;
-  color: var(--muted);
+  color: rgba(191, 222, 177, 0.62);
   font-size: 0.85rem;
   line-height: 1.6;
 }
@@ -1101,7 +1121,7 @@ a:focus-visible {
   gap: 7px;
   margin: -3px 0 18px;
   padding-top: 14px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(121, 173, 105, 0.2);
 }
 
 .menu-variants div {
@@ -1109,12 +1129,12 @@ a:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  color: var(--muted);
+  color: rgba(191, 222, 177, 0.62);
   font-size: 0.7rem;
 }
 
 .menu-variants strong {
-  color: var(--ink);
+  color: #8fbd7d;
   white-space: nowrap;
 }
 
@@ -1122,15 +1142,15 @@ a:focus-visible {
   margin-top: auto;
   padding: 7px 10px;
   border-radius: 8px;
-  background: var(--cream);
-  color: var(--ink-soft);
+  background: #79ad69;
+  color: #020706;
   font-size: 0.65rem;
   font-weight: 800;
 }
 
 .menu-note {
   margin: 22px 0 0;
-  color: var(--muted);
+  color: rgba(143, 189, 125, 0.58);
   font-size: 0.7rem;
 }
 
@@ -1143,7 +1163,7 @@ a:focus-visible {
 
 .menu-note-row > a {
   margin-top: 22px;
-  color: var(--terracotta);
+  color: #79ad69;
   font-size: 0.7rem;
   font-weight: 800;
 }
@@ -1859,8 +1879,8 @@ footer p {
 
   .connoisseur-shade {
     background:
-      linear-gradient(180deg, rgba(131, 174, 113, 0.9) 0%, rgba(119, 163, 101, 0.72) 47%, rgba(2, 7, 6, 0.12) 76%, rgba(2, 7, 6, 0.28) 100%),
-      radial-gradient(circle at 62% 72%, rgba(79, 143, 80, 0.2), transparent 30%);
+      linear-gradient(180deg, rgba(2, 7, 6, 0.97) 0%, rgba(2, 7, 6, 0.9) 48%, rgba(2, 7, 6, 0.34) 76%, rgba(2, 7, 6, 0.48) 100%),
+      radial-gradient(circle at 62% 72%, rgba(79, 143, 80, 0.12), transparent 30%);
   }
 
   .connoisseur-content {
