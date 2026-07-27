@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import { ConnoisseurStackInteractor } from "@/components/ui/connoisseur-stack-interactor";
 import { MENU_CATEGORIES, MENU_ITEMS } from "@/data/menu";
 
 type Member = {
@@ -62,6 +63,15 @@ export default function Home() {
   );
 
   const today = new Date().toISOString().split("T")[0];
+
+  function showMenu(nextCategory = "Todos") {
+    setCategory(nextCategory);
+    window.requestAnimationFrame(() => {
+      document
+        .getElementById("menu")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
 
   async function submitReservation(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -211,66 +221,10 @@ export default function Home() {
         </a>
       </header>
 
-      <section className="hero" id="inicio">
-        <div className="hero-copy">
-          <p className="eyebrow">BAR · RESTAURANTE · BUENOS RATOS</p>
-          <h1>
-            Comé rico.
-            <span>Volvé pronto.</span>
-          </h1>
-          <p className="hero-description">
-            Tu lugar para compartir, brindar y sumar puntos por cada visita. Explorá
-            el menú, reservá tu mesa y descubrí todo lo que Barbudos tiene para vos.
-          </p>
-          <div className="hero-actions">
-            <a className="button" href="#menu">
-              Ver el menú <span aria-hidden="true">↓</span>
-            </a>
-            <a className="text-link" href="#puntos">
-              Consultar mis puntos <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-          <div className="hero-proof" aria-label="Beneficios de Barbudos">
-            <div>
-              <strong>+1 punto</strong>
-              <span>por cada ₡100</span>
-            </div>
-            <div>
-              <strong>120 pts</strong>
-              <span>de bienvenida</span>
-            </div>
-            <div>
-              <strong>Sin app</strong>
-              <span>solo tu teléfono</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="hero-visual" aria-label="Experiencia Barbudos">
-          <div className="hero-orbit orbit-one" />
-          <div className="hero-orbit orbit-two" />
-          <div className="share-card">
-            <img
-              src="/og.png"
-              alt="Barbudos: Escaneá, elegí y disfrutá, con hamburguesa, papas y coctel"
-            />
-          </div>
-          <div className="floating-card floating-top">
-            <span className="pulse-dot" />
-            <div>
-              <strong>Abierto hoy</strong>
-              <span>12:00 m. - 11:00 p. m.</span>
-            </div>
-          </div>
-          <div className="floating-card floating-bottom">
-            <span className="stamp">+20</span>
-            <div>
-              <strong>Puntos extra</strong>
-              <span>en tu próxima visita</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ConnoisseurStackInteractor
+        onSelectCategory={showMenu}
+        onViewAll={() => showMenu("Todos")}
+      />
 
       <section className="ticker" aria-label="Características">
         <span>BUENA COMIDA</span><i>✦</i>

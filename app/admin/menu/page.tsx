@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { MENU_CATEGORIES, MENU_ITEMS } from "@/data/menu";
 
 type UploadState = {
@@ -107,11 +108,11 @@ export default function MenuAdminPage() {
   return (
     <main className="admin-page">
       <header className="admin-header">
-        <a className="brand" href="/">
+        <Link className="brand" href="/">
           <span className="brand-mark">B</span>
           <span>BARBUDOS</span>
-        </a>
-        <a className="admin-back-link" href="/">← Volver al menú</a>
+        </Link>
+        <Link className="admin-back-link" href="/">← Volver al menú</Link>
       </header>
 
       <section className="admin-shell">
