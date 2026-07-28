@@ -26,8 +26,7 @@ const defaultItems: ConnoisseurItem[] = [
     category: "Hamburguesas",
     eyebrow: "La firma de la casa",
     clipId: "clip-original",
-    image:
-      "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1400&q=88",
+    image: "/menu/barbudos-table.jpeg",
   },
   {
     num: "02",
@@ -35,8 +34,7 @@ const defaultItems: ConnoisseurItem[] = [
     category: "Cócteles",
     eyebrow: "La noche empieza aquí",
     clipId: "clip-hexagons",
-    image:
-      "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=1400&q=88",
+    image: "/menu/gin-tonics.jpeg",
   },
   {
     num: "03",
@@ -44,8 +42,7 @@ const defaultItems: ConnoisseurItem[] = [
     category: "Para Compartir",
     eyebrow: "Al centro sabe mejor",
     clipId: "clip-pixels",
-    image:
-      "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=1400&q=88",
+    image: "/menu/trios.jpeg",
   },
   {
     num: "04",
@@ -53,8 +50,7 @@ const defaultItems: ConnoisseurItem[] = [
     category: "Carnes",
     eyebrow: "Fuego, punto y carácter",
     clipId: "clip-original",
-    image:
-      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1400&q=88",
+    image: "/menu/lomito-barbudos.jpeg",
   },
 ];
 

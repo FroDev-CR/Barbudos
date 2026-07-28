@@ -18,6 +18,21 @@ const rewards = [
   { name: "Combo Barbudos", cost: 420, note: "Hamburguesa clásica + bebida" },
 ];
 
+const CURATED_MENU_IMAGES: Record<string, string> = {
+  nachos: "/menu/nachos.jpeg",
+  "mozzarella-sticks": "/menu/mozzarella-sticks.jpeg",
+  "papas-locas": "/menu/papas-locas.jpeg",
+  "boneless-wings": "/menu/boneless-wings.jpeg",
+  "chicken-wings": "/menu/chicken-wings.jpeg",
+  "plato-ejecutivo": "/menu/plato-ejecutivo.jpeg",
+  trios: "/menu/trios.jpeg",
+  "lomito-barbudos": "/menu/lomito-barbudos.jpeg",
+  cosmopolitan: "/menu/cosmopolitan.jpeg",
+  mojitos: "/menu/mojitos.jpeg",
+  "aperol-spritz": "/menu/aperol-spritz.jpeg",
+  "gin-tonics": "/menu/gin-tonics.jpeg",
+};
+
 function normalizePhone(value: string) {
   return value.replace(/[^\d+]/g, "");
 }
@@ -267,41 +282,50 @@ export default function Home() {
         </div>
 
         <div className="menu-grid">
-          {filteredItems.map((item) => (
-            <article className="menu-card" key={item.id}>
-              <div className={`food-art ${item.art} ${menuImages[item.id] ? "has-photo" : ""}`}>
-                {menuImages[item.id] ? (
-                  <img src={menuImages[item.id]} alt={item.name} />
-                ) : (
-                  <>
-                    <span className="art-label">{item.category}</span>
-                    <span className="art-number">{item.name.slice(0, 2).toUpperCase()}</span>
-                    <i className="plate plate-one" />
-                    <i className="plate plate-two" />
-                    <span className="photo-placeholder">Foto próximamente</span>
-                  </>
-                )}
-              </div>
-              <div className="menu-card-body">
-                <div className="menu-title-row">
-                  <h3>{item.name}</h3>
-                  <strong>{item.price}</strong>
+          {filteredItems.map((item) => {
+            const imageUrl = menuImages[item.id] ?? CURATED_MENU_IMAGES[item.id];
+
+            return (
+              <article className="menu-card" key={item.id}>
+                <div className={`food-art ${item.art} ${imageUrl ? "has-photo" : ""}`}>
+                  {imageUrl ? (
+                    <img
+                      src={imageUrl}
+                      alt={item.name}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <>
+                      <span className="art-label">{item.category}</span>
+                      <span className="art-number">{item.name.slice(0, 2).toUpperCase()}</span>
+                      <i className="plate plate-one" />
+                      <i className="plate plate-two" />
+                      <span className="photo-placeholder">Foto próximamente</span>
+                    </>
+                  )}
                 </div>
-                <p>{item.description}</p>
-                {item.variants && item.variants.length > 0 && (
-                  <div className="menu-variants" aria-label={`Opciones de ${item.name}`}>
-                    {item.variants.map((variant) => (
-                      <div key={`${item.id}-${variant.label}`}>
-                        <span>{variant.label}</span>
-                        <strong>{variant.price}</strong>
-                      </div>
-                    ))}
+                <div className="menu-card-body">
+                  <div className="menu-title-row">
+                    <h3>{item.name}</h3>
+                    <strong>{item.price}</strong>
                   </div>
-                )}
-                {item.tag && <span className="tag">{item.tag}</span>}
-              </div>
-            </article>
-          ))}
+                  <p>{item.description}</p>
+                  {item.variants && item.variants.length > 0 && (
+                    <div className="menu-variants" aria-label={`Opciones de ${item.name}`}>
+                      {item.variants.map((variant) => (
+                        <div key={`${item.id}-${variant.label}`}>
+                          <span>{variant.label}</span>
+                          <strong>{variant.price}</strong>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {item.tag && <span className="tag">{item.tag}</span>}
+                </div>
+              </article>
+            );
+          })}
         </div>
         <div className="menu-note-row">
           <p className="menu-note">
